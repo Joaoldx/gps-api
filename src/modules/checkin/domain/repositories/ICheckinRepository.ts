@@ -1,4 +1,4 @@
-import { ICheckin } from '../domain/ICheckin';
+import { ICheckin } from '../models/ICheckin';
 
 export interface ICheckinRepository {
   findAll(): Promise<ICheckin[]>;
