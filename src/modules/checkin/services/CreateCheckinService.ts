@@ -5,7 +5,7 @@ import { ICheckin } from '../domain/models/ICheckin';
 @injectable()
 export default class CreateCheckinService {
   constructor(
-    @inject('UsersRepository')
+    @inject('CheckinRepository')
     private checkinRepository: ICheckinRepository,
   ) {}
 
