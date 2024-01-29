@@ -4,3 +4,5 @@ import { Router } from 'express';
 const routes = Router();
 
 routes.use('/checkin', chekcinRouter);
+
+export default routes;
