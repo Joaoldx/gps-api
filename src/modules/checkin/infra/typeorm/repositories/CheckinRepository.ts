@@ -3,6 +3,7 @@ import { ICheckinRepository } from '@modules/checkin/domain/repositories/IChecki
 import { dataSource } from '@shared/infra/typeorm';
 import Checkin from '../entities/Checkin';
 import { Repository } from 'typeorm';
+import { ICreateCheckin } from '@modules/checkin/domain/models/ICreateCheckin';
 
 export class CheckinRepository implements ICheckinRepository {
   private ormRepository: Repository<Checkin>;
@@ -24,15 +25,13 @@ export class CheckinRepository implements ICheckinRepository {
     return checkin;
   }
   public async create({
-    id,
     name,
     cpf,
     date,
     type,
     description,
-  }: ICheckin): Promise<ICheckin | null> {
+  }: ICreateCheckin): Promise<ICheckin | null> {
     const checkin = await this.ormRepository.create({
-      id,
       name,
       cpf,
       date,
@@ -45,7 +44,6 @@ export class CheckinRepository implements ICheckinRepository {
     return checkin;
   }
   public async save({
-    id,
     name,
     cpf,
     date,
@@ -53,7 +51,6 @@ export class CheckinRepository implements ICheckinRepository {
     description,
   }: ICheckin): Promise<ICheckin | null> {
     return await this.ormRepository.save({
-      id,
       name,
       cpf,
       date,
