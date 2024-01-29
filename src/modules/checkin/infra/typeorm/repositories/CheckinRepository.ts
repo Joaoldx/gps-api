@@ -15,6 +15,7 @@ export class CheckinRepository implements ICheckinRepository {
   public async findAll(): Promise<ICheckin[]> {
     return await this.ormRepository.find();
   }
+
   public async findById(id: string): Promise<ICheckin | null> {
     const checkin = await this.ormRepository.findOne({
       where: {

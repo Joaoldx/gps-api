@@ -7,7 +7,7 @@ export default class CheckinController {
   public async index(request: Request, response: Response) {
     const findAll = container.resolve(ListCheckinService);
 
-    const checkins = findAll.execute();
+    const checkins = await findAll.execute();
 
     return response.json(checkins);
   }
@@ -17,7 +17,7 @@ export default class CheckinController {
 
     const createCheckin = container.resolve(CreateCheckinService);
 
-    const checkin = createCheckin.execute({
+    const checkin = await createCheckin.execute({
       name,
       cpf,
       date,
